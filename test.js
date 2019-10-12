@@ -498,8 +498,9 @@ test('Nevercode - Not PR', function (t) {
 })
 
 test('GitHub Actions - PR', function (t) {
-  process.env.GITHUB_ACTIONS = 'true'
+  process.env.GITHUB_ACTION = 'true'
   process.env.GITHUB_EVENT_NAME = 'pull_request'
+  process.env.GITHUB_EVENT_PATH = '/home/catpants'
 
   clearModule('./')
   var ci = require('./')
@@ -517,8 +518,9 @@ test('GitHub Actions - PR', function (t) {
 })
 
 test('GitHub Actions - Not PR', function (t) {
-  process.env.GITHUB_ACTIONS = 'true'
+  process.env.GITHUB_ACTION = 'true'
   process.env.GITHUB_EVENT_NAME = 'push'
+  process.env.GITHUB_EVENT_PATH = '/home/catpants'
 
   clearModule('./')
   var ci = require('./')
